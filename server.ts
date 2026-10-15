@@ -29,6 +29,11 @@ app.all('/api/bus-arrival', (req, res) => {
   return busArrivalHandler(req, res);
 });
 
+// Downloadable prompt.md endpoint
+app.get('/prompt.md', (req, res) => {
+  res.download(path.resolve(__dirname, 'prompt.md'), 'prompt.md');
+});
+
 async function startServer() {
   const isProduction = process.env.NODE_ENV === 'production';
 

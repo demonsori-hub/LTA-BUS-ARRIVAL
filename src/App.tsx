@@ -11,7 +11,7 @@ import { BusVehicleInspector } from './components/BusVehicleInspector';
 import { CommuterAlarmsBanner } from './components/CommuterAlarmsBanner';
 import { TrafficDelayBar } from './components/TrafficDelayBar';
 import { playArrivalChime } from './utils/audioAlert';
-import { Map, List, Search, Server, RefreshCw } from 'lucide-react';
+import { Map, List, Search, Server, RefreshCw, FileText, Download } from 'lucide-react';
 
 export default function App() {
   // Current user GPS or default Singapore focal point (Orchard Road)
@@ -275,6 +275,15 @@ export default function App() {
             <Server className="w-3.5 h-3.5 text-slate-500" />
             <span>API Connector</span>
           </button>
+          <a
+            href="/prompt.md"
+            download="prompt.md"
+            className="hover:text-slate-900 transition-colors whitespace-nowrap shrink-0 flex items-center gap-1.5"
+            title="Download session prompts as prompt.md"
+          >
+            <FileText className="w-3.5 h-3.5 text-slate-500" />
+            <span>Prompts</span>
+          </a>
         </nav>
 
         {/* Zone 3: 1 Primary Action */}

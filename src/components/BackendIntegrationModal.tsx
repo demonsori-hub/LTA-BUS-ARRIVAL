@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Check, Copy, Server, Globe, ExternalLink, Code2 } from 'lucide-react';
+import { X, Check, Copy, Server, Globe, ExternalLink, Code2, Download } from 'lucide-react';
 import { ltaService } from '../services/ltaService';
 
 interface BackendIntegrationModalProps {
@@ -181,17 +181,28 @@ app.listen(3001, () => console.log('LTA Proxy Server running on port 3001'));`;
 
         {/* Footer */}
         <div className="p-4 bg-slate-50 border-t border-slate-200 flex items-center justify-between">
-          <button
-            onClick={() => {
-              setCustomUrl('');
-              ltaService.setCustomBackendUrl('');
-              onEndpointUpdated('');
-              onClose();
-            }}
-            className="text-xs text-rose-600 hover:text-rose-800 font-medium"
-          >
-            Reset to Simulation Mode
-          </button>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => {
+                setCustomUrl('');
+                ltaService.setCustomBackendUrl('');
+                onEndpointUpdated('');
+                onClose();
+              }}
+              className="text-xs text-rose-600 hover:text-rose-800 font-medium"
+            >
+              Reset to Simulation Mode
+            </button>
+            <span className="text-slate-300">·</span>
+            <a
+              href="/prompt.md"
+              download="prompt.md"
+              className="text-xs text-blue-600 hover:text-blue-800 font-medium flex items-center gap-1"
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span>Download prompt.md</span>
+            </a>
+          </div>
 
           <div className="flex items-center gap-2">
             <button

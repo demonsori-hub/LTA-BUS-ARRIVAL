@@ -17,7 +17,7 @@ export interface TrafficConditions {
 }
 
 class LTAService {
-  private customBackendUrl: string = '';
+  private customBackendUrl: string = '/api/busarrival';
   private liveBusCache: Map<string, LiveBusMarker[]> = new Map();
   private traffic: TrafficConditions = {
     isPeakHour: false,

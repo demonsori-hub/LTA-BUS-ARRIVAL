@@ -319,6 +319,15 @@ export const SG_BUS_STOPS: BusStop[] = [
     Region: 'East',
     MrtNearby: 'Changi Airport (CG2)'
   },
+  {
+    BusStopCode: '83139',
+    RoadName: 'Marine Parade Rd',
+    Description: 'Opp Blk 34',
+    Latitude: 1.3032,
+    Longitude: 103.9056,
+    Region: 'East',
+    MrtNearby: 'Marine Parade (TE26)'
+  },
 
   // North / Central: Bishan, Toa Payoh, Ang Mo Kio, Woodlands
   {
@@ -429,6 +438,8 @@ export const STOP_SERVICE_MAP: Record<string, string[]> = {
   '95029': ['24', '27', '34', '36', '53', '110', '858'],
   // Changi PTB1
   '95129': ['24', '27', '34', '36', '53', '110', '858'],
+  // Marine Parade Opp Blk 34
+  '83139': ['15', '36', '43', '48', '134', '135', '196', '197', '966'],
   // Bishan Int
   '53009': ['52', '53', '54', '55', '56', '57', '58', '59', '410G', '410W'],
   // Toa Payoh Int

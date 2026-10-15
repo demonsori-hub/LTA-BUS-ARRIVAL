@@ -34,18 +34,19 @@ export const BackendIntegrationModal: React.FC<BackendIntegrationModalProps> = (
     }
 
     setTestStatus('testing');
-    setTestMessage('Pinging endpoint with BusStopCode=09048...');
+    setTestMessage('Pinging endpoint with BusStopCode=83139...');
 
     try {
-      const url = customUrl.includes('?') ? `${customUrl}&BusStopCode=09048` : `${customUrl}?BusStopCode=09048`;
+      const url = customUrl.includes('?') ? `${customUrl}&BusStopCode=83139` : `${customUrl}?BusStopCode=83139`;
       const res = await fetch(url);
       if (res.ok) {
         const data = await res.json();
         setTestStatus('success');
-        setTestMessage(`Connected! Received ${data.Services?.length || 0} services.`);
+        setTestMessage(`Connected! Received ${data.Services?.length || 0} services for BusStopCode 83139.`);
       } else {
+        const errJson = await res.json().catch(() => null);
         setTestStatus('error');
-        setTestMessage(`Server returned HTTP ${res.status}`);
+        setTestMessage(errJson?.message || `Server returned HTTP ${res.status}`);
       }
     } catch (err: any) {
       setTestStatus('error');
@@ -120,7 +121,7 @@ app.listen(3001, () => console.log('LTA Proxy Server running on port 3001'));`;
                 type="text"
                 value={customUrl}
                 onChange={e => setCustomUrl(e.target.value)}
-                placeholder="e.g. http://localhost:3001/api/bus-arrival"
+                placeholder="/api/busarrival"
                 className="flex-1 px-3 py-2 text-xs font-mono bg-white border border-slate-300 rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <button
